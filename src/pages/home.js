@@ -95,9 +95,9 @@ export default function Home({ handleLogout, username, flashAlert }) {
 
     const editPreferences = async (preferences) => {
         try {
-            const response = await updateIndividualPreferences(username, preferences)
+            await updateIndividualPreferences(username, preferences)
             closeModal()
-            setIndividualPreferences(response.value)
+            populateIndividualPreferences()
             flashAlert("success", "Your preferences were successfully updated")
         } catch (error) {
             flashAlert("error", error.message)
