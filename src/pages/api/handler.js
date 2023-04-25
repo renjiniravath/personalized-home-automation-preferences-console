@@ -1,6 +1,6 @@
 import HttpError from "../httpError";
 
-const APIUrl = "http://localhost:8080/"
+const APIUrl = process.env.NEXT_PUBLIC_API_URL
 export default async function handler(method, url, body = {}) {
   let request = {
     method: method,
