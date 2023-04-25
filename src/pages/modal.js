@@ -48,11 +48,11 @@ export default function PreferencesModal({ isOpen, close, type, preferences, edi
     const [fanSpeed, setFanSpeed] = useState(4)
 
     useEffect(() => {
-        setTemperature(preferences.temperatureInF)
-        setLightColor(preferences.lightColor)
-        setLightBrightness(preferences.lightBrightness)
-        setHumidity(preferences.humidity)
-        setFanSpeed(preferences.fanSpeed)
+        setTemperature(preferences.temperatureInF || 50)
+        setLightColor(preferences.lightColor || "White")
+        setLightBrightness(preferences.lightBrightness || 50)
+        setHumidity(preferences.humidity || 50)
+        setFanSpeed(preferences.fanSpeed || 4)
     }, [preferences.temperatureInF, preferences.lightColor, preferences.lightBrightness, preferences.humidity, preferences.fanSpeed])
 
     const handleSliderChange = (newValue, setFunction) => {
@@ -228,7 +228,7 @@ export default function PreferencesModal({ isOpen, close, type, preferences, edi
                         aria-label="Fan Speed"
                         step={1}
                         marks
-                        min={1}
+                        min={0}
                         max={5}
                     />
                     <Button size="large" onClick={submit}>Confirm</Button>
